@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect} from 'react';
+import {MainPage} from "./Pages/MainPage/MainPage";
+import {Header} from "./Components/Header/Header";
+import {useDispatch} from "react-redux";
+import {fetchCurrentCity} from "./store/cityReducer";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App: React.FC = () => {
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(fetchCurrentCity())
+    }, [dispatch])
+
+    return (
+
+        <div className="App">
+            <Header/>
+            <MainPage/>
+
+        </div>
+    );
 }
 
 export default App;

@@ -1,0 +1,74 @@
+.card_wrapper {
+  display: flex;
+  width: 85vw;
+  justify-content: center;
+
+  .card_container {
+    border-radius: 2vw;
+    box-shadow: 0 0 20px 15px rgba(0, 0, 0, 0.09);
+    width: 50vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    .delete_cross{
+      width: 1.5vw;
+      top: 2.7vw;
+      right: 2.7vw;
+      position: absolute;
+      cursor: pointer;
+      filter: invert(50%);
+      transition: 0.2s ease-in-out;
+    }
+    .delete_cross:hover{
+      width: 1.5vw;
+      top: 2.7vw;
+      right: 2.7vw;
+      position: absolute;
+      cursor: pointer;
+      filter: invert(0%);
+      transition: 0.2s ease-in-out;
+    }
+    .city_name {
+      color: #045f7a;
+      font-size: 3.2vw;
+      font-weight: 500;
+    }
+
+    .more_info {
+      font-style: oblique;
+      font-size: 2.3vw;
+      color: #045f7a;
+      font-weight: 300;
+    }
+
+    .weather_report_block {
+      display: flex;
+      gap: 5vw;
+
+      .weather_image {
+        width: 10vw;
+        height: 10vw;
+      }
+
+      .weather_celsius {
+        display: flex;
+        align-items: center;
+        color: #045f7a;
+        font-size: 7vw;
+      }
+    }
+    .weather_description{
+      color: #045f7a;
+      font-size: 2.7vw;
+      margin-bottom: 0;
+    }
+    .weather_feel{
+      margin-top: 0;
+      color: #045f7a;
+      font-size: 2.7vw;
+    }
+  }
+}
+
