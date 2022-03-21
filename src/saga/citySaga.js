@@ -2,20 +2,14 @@ import {put, takeEvery, call} from 'redux-saga/effects';
 import {setCurrentCity, FETCH_CURRENT_CITY_WEATHER} from "../store/cityReducer";
 import {weatherAPI} from "../api";
 
-//
-const getCoords = () =>{
-    let data
-    navigator.geolocation.getCurrentPosition((position) => {
-        data = weatherAPI.byCoord(position.coords.latitude, position.coords.longitude)
-    })
-    return data
-}
+const getUserLocation = () =>new Promise((resolve, reject)=>{
+    navigator.geolocation.getCurrentPosition(location=>resolve(location), error=> reject(error),)
+})
 
 function* fetchCurrentCityWorker(){
-    // const {lat, lon} = yield call(()=>getCoords());
-    // yield call(()=>console.log(lat, lon))
-    const data = yield call(()=>getCoords())
-    console.log(data)
+    const location = yield call(getUserLocation)
+    const {latitude, longitude} = location.coords
+    const data = yield call(()=>weatherAPI.byCoord(latitude, longitude))
     yield put(setCurrentCity(data.data))
 }
 

@@ -5,20 +5,22 @@
 
   .card_container {
     border-radius: 2vw;
-    box-shadow: 0 0 20px 15px rgba(0, 0, 0, 0.09);
+    box-shadow: 0 0 25px 15px rgba(0, 0, 0, 0.2);
     width: 50vw;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
     position: relative;
+    background: #b3b9f1;
+    cursor: pointer;
     .delete_cross{
       width: 1.5vw;
       top: 2.7vw;
       right: 2.7vw;
       position: absolute;
       cursor: pointer;
-      filter: invert(50%);
+      filter: invert(100%);
       transition: 0.2s ease-in-out;
     }
     .delete_cross:hover{
@@ -31,7 +33,7 @@
       transition: 0.2s ease-in-out;
     }
     .city_name {
-      color: #045f7a;
+      color: #ffffff;
       font-size: 3.2vw;
       font-weight: 500;
     }
@@ -39,7 +41,7 @@
     .more_info {
       font-style: oblique;
       font-size: 2.3vw;
-      color: #045f7a;
+      color: #010f13;
       font-weight: 300;
     }
 
@@ -48,25 +50,25 @@
       gap: 5vw;
 
       .weather_image {
-        width: 10vw;
-        height: 10vw;
+        width: 11vw;
+        height: 11vw;
       }
 
       .weather_celsius {
         display: flex;
         align-items: center;
-        color: #045f7a;
+        color: #ffffff;
         font-size: 7vw;
       }
     }
     .weather_description{
-      color: #045f7a;
+      color: #ffffff;
       font-size: 2.7vw;
       margin-bottom: 0;
     }
     .weather_feel{
       margin-top: 0;
-      color: #045f7a;
+      color: #ffffff;
       font-size: 2.7vw;
     }
   }

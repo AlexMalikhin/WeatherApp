@@ -1,8 +1,8 @@
 .wrapper{
   display: flex;
   justify-content: center;
-  border-bottom: 1px solid #e7dbdb;
-  background: #d2ddf1;
+  border-bottom: 1px solid rgba(17, 12, 12, 0.09);
+  background: #b3b9f1;
   position: sticky;
   height: 10vh;
   top: 0;
@@ -14,7 +14,7 @@
     justify-content: space-between;
     align-items: center;
     .logo_header{
-      color: #4f59c5;
+      color: white;
     }
     .input{
       height: 2vw;

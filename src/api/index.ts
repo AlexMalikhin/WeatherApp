@@ -6,7 +6,7 @@ const instance = axios.create({
 
 export const weatherAPI = {
     byCoord(lat: number, lon: number) {
-        return instance.get(`weather?lat=${lat}&lon=${lon}&lang=ru&appid=471fb871540b1cabfd3ed0bce031cb0d`)
+        return instance.get(`weather?lat=${lat}&lon=${lon}&units=metric&lang=ru&appid=471fb871540b1cabfd3ed0bce031cb0d`)
     },
     byCityName(city: string) {
         return instance.get(`weather?q=${city}&units=metric&lang=ru&appid=471fb871540b1cabfd3ed0bce031cb0d`)

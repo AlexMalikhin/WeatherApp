@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
 import {MainPage} from "./Pages/MainPage/MainPage";
 import {Header} from "./Components/Header/Header";
-import {useDispatch} from "react-redux";
-import {fetchCurrentCity} from "./store/cityReducer";
+import {useDispatch, useSelector} from "react-redux";
+import {cityReducer, fetchCurrentCity} from "./store/cityReducer";
 
 const App: React.FC = () => {
     const dispatch = useDispatch();
