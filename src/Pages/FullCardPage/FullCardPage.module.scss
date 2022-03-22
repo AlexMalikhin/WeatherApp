@@ -6,20 +6,35 @@
   z-index: 3000;
   width: 100vw;
   height: 100vh;
+
   .container {
     align-items: center;
     display: flex;
     flex-direction: column;
-    .city_name{
+
+    .city_name {
       font-size: 3vw;
       color: #0b6073;
     }
-    .weather_days{
-      padding: 0 5vw;
-      width: 90vw;
-      .days_headers{
+
+    .weather_days {
+      padding: 0 12vw;
+      width: 76vw;
+
+      .days_headers {
         font-size: 2vw;
         color: #0b6073;
+      }
+      .cards{
+        display: flex;
+        .card_block{
+          border: 1px solid black;
+          background: white;
+          width: 16vw;
+          height: 9vw;
+          border-radius: 1vw;
+          margin-right: 2.5vw;
+        }
       }
     }
 
