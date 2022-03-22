@@ -1,0 +1,48 @@
+.wrapper {
+  background: rgba(1, 15, 19, 0.05);
+  position: absolute;
+  top: 0;
+  backdrop-filter: blur(8px);
+  z-index: 3000;
+  width: 100vw;
+  height: 100vh;
+  .container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    .city_name{
+      font-size: 3vw;
+      color: #0b6073;
+    }
+    .weather_days{
+      padding: 0 5vw;
+      width: 90vw;
+      .days_headers{
+        font-size: 2vw;
+        color: #0b6073;
+      }
+    }
+
+    .delete_button {
+      position: absolute;
+      z-index: 3001;
+      width: 1.8vw;
+      top: 3vw;
+      right: 3vw;
+      cursor: pointer;
+      filter: invert(30%);
+      transition: 0.2s ease-in-out;
+    }
+
+    .delete_button:hover {
+      position: absolute;
+      z-index: 3001;
+      width: 1.8vw;
+      top: 3vw;
+      right: 3vw;
+      cursor: pointer;
+      filter: invert(0%);
+      transition: 0.2s ease-in-out;
+    }
+  }
+}

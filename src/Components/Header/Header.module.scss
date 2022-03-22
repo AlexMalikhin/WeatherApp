@@ -13,6 +13,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    .searcher_block{
+      display: flex;
+    }
     .logo_header{
       color: white;
     }
