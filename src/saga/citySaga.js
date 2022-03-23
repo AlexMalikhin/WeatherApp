@@ -7,13 +7,13 @@ const getUserLocation = () =>new Promise((resolve, reject)=>{
 })
 
 function* fetchCurrentCityWorker(){
-    const location = yield call(getUserLocation)
-    const {latitude, longitude} = location.coords
-    const data = yield call(()=>weatherAPI.byCoord(latitude, longitude))
+    // const location = yield call(getUserLocation)
+    // const {latitude, longitude} = location.coords
+    // const data = yield call(()=>weatherAPI.byCoord(latitude, longitude))
 
-    // const currentLocation = yield call(()=>geoLocateAPI.getLocate('c44d41ee20fa4f7ad65b3bf9df85e7aa2026b8cd'))
-    // const {geo_lat, geo_lon} = currentLocation.data.location.data
-    // const data = yield call(()=>weatherAPI.byCoord(geo_lat, geo_lon))
+    const currentLocation = yield call(()=>geoLocateAPI.getLocate('c44d41ee20fa4f7ad65b3bf9df85e7aa2026b8cd'))
+    const {geo_lat, geo_lon} = currentLocation.data.location.data
+    const data = yield call(()=>weatherAPI.byCoord(geo_lat, geo_lon))
     yield put(addWeatherNewCity(data.data))
 }
 
