@@ -1,11 +1,11 @@
 .wrapper {
-  background: rgba(1, 15, 19, 0.05);
-  position: absolute;
+  background: rgba(229, 2, 64, 0.21);
+  position: fixed;
   top: 0;
   backdrop-filter: blur(8px);
   z-index: 3000;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 
   .container {
     align-items: center;
@@ -15,27 +15,14 @@
     .city_name {
       font-size: 3vw;
       color: #0b6073;
+      margin-bottom: 0;
     }
 
     .weather_days {
       padding: 0 12vw;
       width: 76vw;
 
-      .days_headers {
-        font-size: 2vw;
-        color: #0b6073;
-      }
-      .cards{
-        display: flex;
-        .card_block{
-          border: 1px solid black;
-          background: white;
-          width: 16vw;
-          height: 9vw;
-          border-radius: 1vw;
-          margin-right: 2.5vw;
-        }
-      }
+
     }
 
     .delete_button {

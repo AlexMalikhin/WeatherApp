@@ -15,3 +15,11 @@ export const weatherAPI = {
         return instance.get(`forecast?lat=${lat}&lon=${lon}&appid=471fb871540b1cabfd3ed0bce031cb0d`).then(res => res.data.list)
     }
 }
+
+export const geoLocateAPI = {
+    getLocate(token: string){
+        return axios.get('https://suggestions.dadata.ru/suggestions/api/4_1/rs/iplocate/address', {headers: {
+                "Authorization": "Token " + token
+            }})
+    }
+}

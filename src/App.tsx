@@ -10,16 +10,13 @@ const App: React.FC = () => {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(fetchCurrentCity())
-    }, [dispatch])
+    }, [])
 
     return (
         <div className="App">
             <Header/>
             <Routes>
                 <Route path='/Main' element={<MainPage/>}/>
-                <Route path='/FullPage' element={[<FullCardPage/>, <MainPage/>]}/>
-
-
             </Routes>
         </div>
     );

@@ -7,7 +7,7 @@ import {addNewCityCoords, fetchAddedWeatherCity} from "../../store/cityReducer";
 
 export const Header: React.FC = () => {
     const [cityValue, setCityValue] = useState()
-    const API_KEY = '83f433dbdf7f25bc24bccb1366050ccab7a280e4'
+    const API_KEY = 'c44d41ee20fa4f7ad65b3bf9df85e7aa2026b8cd'
     const dispatch = useDispatch()
 
     const handleChange = (e: any) => {
