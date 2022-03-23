@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import moment from "moment";
 import {FullCardBlock} from "../../Components/FullCardBlock/FullCardBlock";
 import fullCardPageStyles from './FullCardPage.module.scss';
-import cross from '../../img/delete.png';
+import cross from '../../img/cloud.png';
 import {useDispatch, useSelector} from "react-redux";
 import {fetchHourlyWeatherForecast} from "../../store/cityReducer";
 
@@ -10,7 +10,7 @@ export const FullCardPage = ({click}: any) => {
     const currentCityParams = useSelector(state=>state.detailedWeatherForecastParams)
     const dispatch = useDispatch()
     useEffect(()=>{
-        dispatch(fetchHourlyWeatherForecast)
+        dispatch(fetchHourlyWeatherForecast())
     },[dispatch])
 
     return (

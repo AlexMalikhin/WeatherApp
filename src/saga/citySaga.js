@@ -25,7 +25,8 @@ function* fetchAddedWeatherCityWorker(){
 
 function* fetchHourlyWeatherForecastWorker(){
     const store = yield select()
-    yield call(()=>console.log(store))
+    const {lat, lon} = store.detailedWeatherForecastParams.coords
+    yield call(()=>console.log(lat, lon))
 }
 
 export function* addedCityWeatherWatcher(){
