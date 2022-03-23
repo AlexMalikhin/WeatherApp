@@ -17,7 +17,7 @@ export const Header: React.FC = () => {
     }
     const getCityWeather = () => {
         dispatch(fetchAddedWeatherCity())
-        setCityValue("");
+        setCityValue(undefined);
     }
 
     return (

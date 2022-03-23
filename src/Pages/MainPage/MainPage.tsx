@@ -7,7 +7,7 @@ import {useToggle} from "../../hooks/useToggle";
 
 export const MainPage = () =>{
     const allCities = useSelector(state=> state.allCities)
-    const [isFullInfoModal, toggleFullInfoModal] = useToggle(true)
+    const [isFullInfoModal, toggleFullInfoModal] = useToggle(false)
 
     return(
         <div className={mainPageStyles.wrapper}>

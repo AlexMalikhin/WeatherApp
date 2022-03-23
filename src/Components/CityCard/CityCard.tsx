@@ -2,22 +2,25 @@ import React from "react";
 import cityCardStyles from './CityCard.module.scss';
 import cross from '../../img/delete.png';
 import {useDispatch} from "react-redux";
-import {deleteCityWeather} from "../../store/cityReducer";
+import {addParamsDetailedWeatherForecast, deleteCityWeather} from "../../store/cityReducer";
+import {getImageLink} from "./utils";
 
 export const CityCard: React.FC = ({currentCity, click}: any) => {
     const dispatch = useDispatch()
-    const getImageLink = (iconId: any) => {
-        return `https://openweathermap.org/img/wn/${iconId}@2x.png`
-    }
+
     const deleteCity = () =>{
         dispatch(deleteCityWeather(currentCity.id))
         click.toggle()
+    }
+    const showDetailedWeatherForecast = () =>{
+        click.toggle()
+        dispatch(addParamsDetailedWeatherForecast({lat: currentCity?.coord.lat, lon: currentCity?.coord.lon}, currentCity?.name))
     }
 
     return (
         <>
             {currentCity ? <div className={cityCardStyles.card_wrapper}>
-                <div className={cityCardStyles.card_container} onClick={click.toggle}>
+                <div className={cityCardStyles.card_container} onClick={showDetailedWeatherForecast}>
                     <img src={cross} onClick={deleteCity}
                          className={cityCardStyles.delete_cross} alt='delete button'/>
                     <h2 className={cityCardStyles.city_name}>{currentCity?.name}</h2>
