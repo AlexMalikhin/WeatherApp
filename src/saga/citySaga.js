@@ -1,5 +1,11 @@
 import {put, takeEvery, call, select} from 'redux-saga/effects';
-import {addWeatherNewCity, FETCH_CURRENT_WEATHER_CITY, FETCH_ADDED_WEATHER_CITY, FETCH_HOURLY_WEATHER_FORECAST} from "../store/cityReducer";
+import {
+    addWeatherNewCity,
+    FETCH_CURRENT_WEATHER_CITY,
+    FETCH_ADDED_WEATHER_CITY,
+    FETCH_HOURLY_WEATHER_FORECAST,
+    addHourlyWeatherForecast
+} from "../store/cityReducer";
 import {weatherAPI, geoLocateAPI} from "../api";
 
 const getUserLocation = () =>new Promise((resolve, reject)=>{
@@ -26,7 +32,14 @@ function* fetchAddedWeatherCityWorker(){
 function* fetchHourlyWeatherForecastWorker(){
     const store = yield select()
     const {lat, lon} = store.detailedWeatherForecastParams.coords
-    yield call(()=>console.log(lat, lon))
+    const data = yield call(()=>weatherAPI.byCoordFiveDaysThreeHours(lat, lon))
+    const {list} = data.data
+    const weatherForecast = {
+        today: list.slice(0, 4),
+        tomorrow: list.slice(8, 12),
+        afterTomorrow: list.slice(16, 20)
+    }
+    yield put(addHourlyWeatherForecast(weatherForecast))
 }
 
 export function* addedCityWeatherWatcher(){

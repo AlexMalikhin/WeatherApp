@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   padding: 5vw;
+
   .container{
     display: flex;
     flex-direction: column;
@@ -9,5 +10,14 @@
     justify-content: center;
     align-items: center;
     gap: 4vw;
+  }
+  .container_hidden{
+    display: flex;
+    flex-direction: column;
+    width: 85vw;
+    justify-content: center;
+    align-items: center;
+    gap: 4vw;
+    position: fixed;
   }
 }

@@ -1,8 +1,5 @@
 const defaultState = {
-    newCityCoords: {},
-    allCities: [],
-    detailedWeatherForecastParams: {},
-    currentCityHourlyWeatherForecast: {today: null, tomorrow: null, afterTomorrow: null}
+    newCityCoords: {}, allCities: [], detailedWeatherForecastParams: {}, currentCityHourlyWeatherForecast: null
 }
 
 const DELETE_CITY_WEATHER = 'DELETE_CITY_WEATHER';
@@ -30,11 +27,11 @@ export const cityReducer = (state = defaultState, action) => {
         case ADD_HOURLY_WEATHER_FORECAST:
             return {
                 ...state,
-                currentCityHourlyWeatherForecast: {
-                    today: action.payload.today,
-                    tomorrow: action.payload.tomorrow,
-                    afterTomorrow: action.payload.afterTomorrow
-                }
+                currentCityHourlyWeatherForecast: [
+                    {today: action.payload.today},
+                    {tomorrow: action.payload.tomorrow},
+                    {afterTomorrow: action.payload.afterTomorrow}
+                ]
             }
         default :
             return state
@@ -42,18 +39,15 @@ export const cityReducer = (state = defaultState, action) => {
 }
 
 export const addParamsDetailedWeatherForecast = (coords, cityName) => ({
-    type: ADD_PARAMS_DETAILED_WEATHER_FORECAST,
-    payload: {coords: coords, cityName: cityName}
+    type: ADD_PARAMS_DETAILED_WEATHER_FORECAST, payload: {coords: coords, cityName: cityName}
 })
 export const deleteCityWeather = payload => ({type: DELETE_CITY_WEATHER, payload})
 export const addWeatherNewCity = payload => ({type: ADD_WEATHER_NEW_CITY, payload})
 export const addNewCityCoords = (latitude, longitude) => ({
-    type: ADD_NEW_CITY_COORDS,
-    payload: {latitude: latitude, longitude: longitude}
+    type: ADD_NEW_CITY_COORDS, payload: {latitude: latitude, longitude: longitude}
 })
 export const addHourlyWeatherForecast = (payload) => ({
-    type: ADD_HOURLY_WEATHER_FORECAST,
-    payload: {today: payload.today, tomorrow: payload.tomorrow, afterTomorrow: payload.afterTomorrow}
+    type: ADD_HOURLY_WEATHER_FORECAST, payload: payload
 })
 export const fetchCurrentCity = () => ({type: FETCH_CURRENT_WEATHER_CITY})
 export const fetchAddedWeatherCity = () => ({type: FETCH_ADDED_WEATHER_CITY})

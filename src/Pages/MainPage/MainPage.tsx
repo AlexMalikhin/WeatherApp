@@ -1,8 +1,8 @@
-import mainPageStyles from './MainPage.module.scss';
 import {CityCard} from "../../Components/CityCard/CityCard";
 import {useSelector} from "react-redux";
 import {FullCardPage} from "../FullCardPage/FullCardPage";
 import {useToggle} from "../../hooks/useToggle";
+import mainPageStyles from './MainPage.module.scss';
 
 
 export const MainPage = () =>{
@@ -12,7 +12,7 @@ export const MainPage = () =>{
     return(
         <div className={mainPageStyles.wrapper}>
             {isFullInfoModal && <FullCardPage click={toggleFullInfoModal}/>}
-            <div className={mainPageStyles.container}>
+            <div className={isFullInfoModal ? mainPageStyles.container_hidden : mainPageStyles.container}>
                 {allCities.map((currentCity:any)=> <CityCard key={currentCity.id} currentCity={currentCity} click={toggleFullInfoModal}/>)}
             </div>
         </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import cityCardStyles from './CityCard.module.scss';
-import cross from '../../img/cloud.png';
+import cross from '../../img/delete.png';
 import {useDispatch} from "react-redux";
 import {addParamsDetailedWeatherForecast, deleteCityWeather} from "../../store/cityReducer";
 import {getImageLink} from "./utils";
