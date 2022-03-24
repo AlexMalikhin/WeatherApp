@@ -3,7 +3,7 @@ import fullCardItem from './FullCardItem.module.scss';
 import moment from "moment";
 
 export const FullCardItem: React.FC = ({data}) => {
-    console.log(data.dt_txt)
+    // console.log(data.dt_txt)
     console.log()
     return (
         <div className={fullCardItem.card_block}>

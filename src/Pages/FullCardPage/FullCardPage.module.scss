@@ -5,46 +5,54 @@
   backdrop-filter: blur(8px);
   z-index: 3000;
   width: 100%;
-  height: 110%;
 
   .container {
     align-items: center;
     display: flex;
     flex-direction: column;
+    .header{
+      background: linear-gradient(#e59dfd, #acb2ef);
+      position: sticky;
+      text-align: center;
+      top: 0;
+      width: 100vw;
+      .city_name {
+        font-size: 3vw;
+        color: #0a619d;
+      }
+      .delete_button {
+        position: absolute;
+        z-index: 3001;
+        width: 1.8vw;
+        top: 3vw;
+        right: 3vw;
+        cursor: pointer;
+        filter: invert(30%);
+        transition: 0.1s ease-in-out;
+      }
 
-    .city_name {
-      font-size: 3vw;
-      color: #0b6073;
-      margin-bottom: 0;
+      .delete_button:hover {
+        position: absolute;
+        z-index: 3001;
+        width: 1.8vw;
+        top: 3vw;
+        right: 3vw;
+        cursor: pointer;
+        filter: invert(0%);
+        transition: 0.1s ease-in-out;
+      }
     }
+
 
     .weather_days {
-      padding: 0 12vw;
+      padding: 5vw 3vw;
       width: 76vw;
-
-
+      display: grid;
+      grid-template-columns: 16.5vw 16.5vw 16.5vw 16.5vw;
+      grid-gap: 3.5vw;
+      align-items: start;
     }
 
-    .delete_button {
-      position: absolute;
-      z-index: 3001;
-      width: 1.8vw;
-      top: 3vw;
-      right: 3vw;
-      cursor: pointer;
-      filter: invert(30%);
-      transition: 0.2s ease-in-out;
-    }
 
-    .delete_button:hover {
-      position: absolute;
-      z-index: 3001;
-      width: 1.8vw;
-      top: 3vw;
-      right: 3vw;
-      cursor: pointer;
-      filter: invert(0%);
-      transition: 0.2s ease-in-out;
-    }
   }
 }

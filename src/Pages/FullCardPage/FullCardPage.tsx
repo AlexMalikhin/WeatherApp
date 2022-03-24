@@ -1,6 +1,5 @@
 import React, {useEffect} from "react";
-import moment from "moment";
-import {FullCardBlock} from "../../Components/FullCardBlock/FullCardBlock";
+import {FullCardItem} from "../../Components/FullCardItem/FullCardItem";
 import fullCardPageStyles from './FullCardPage.module.scss';
 import cross from '../../img/delete.png';
 import {useDispatch, useSelector} from "react-redux";
@@ -14,18 +13,19 @@ export const FullCardPage = ({click}: any) => {
     useEffect(()=>{
         dispatch(fetchHourlyWeatherForecast())
     },[dispatch])
-
+    console.log(hourlyWeatherForecast)
 
     return (
         <div className={fullCardPageStyles.wrapper}>
             <div className={fullCardPageStyles.container}>
-                <img className={fullCardPageStyles.delete_button} src={cross} alt={'delete_button'}
-                     onClick={click.toggle}/>
-                <h1 className={fullCardPageStyles.city_name}>{currentCityParams.cityName}</h1>
+                <header className={fullCardPageStyles.header}>
+                    <img className={fullCardPageStyles.delete_button} src={cross} alt={'delete_button'}
+                         onClick={click.toggle}/>
+                    <h1 className={fullCardPageStyles.city_name}>{currentCityParams.cityName}</h1>
+                </header>
                 <div className={fullCardPageStyles.weather_days}>
-                    {hourlyWeatherForecast?.map((day:any, index:any)=>(
-                        <FullCardBlock key={index} day={day}/>
-                    ))}
+                    {hourlyWeatherForecast?.map((item)=>( <FullCardItem data={item}/>))}
+
                 </div>
             </div>
         </div>);

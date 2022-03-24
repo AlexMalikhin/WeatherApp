@@ -34,12 +34,12 @@ function* fetchHourlyWeatherForecastWorker(){
     const {lat, lon} = store.detailedWeatherForecastParams.coords
     const data = yield call(()=>weatherAPI.byCoordFiveDaysThreeHours(lat, lon))
     const {list} = data.data
-    const weatherForecast = {
-        today: list.slice(0, 4),
-        tomorrow: list.slice(8, 12),
-        afterTomorrow: list.slice(16, 20)
-    }
-    yield put(addHourlyWeatherForecast(weatherForecast))
+    // const weatherForecast = {
+    //     today: list.slice(0, 4),
+    //     tomorrow: list.slice(8, 12),
+    //     afterTomorrow: list.slice(16, 20)
+    // }
+    yield put(addHourlyWeatherForecast(list))
 }
 
 export function* addedCityWeatherWatcher(){

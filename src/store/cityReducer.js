@@ -27,11 +27,7 @@ export const cityReducer = (state = defaultState, action) => {
         case ADD_HOURLY_WEATHER_FORECAST:
             return {
                 ...state,
-                currentCityHourlyWeatherForecast: [
-                    {today: action.payload.today},
-                    {tomorrow: action.payload.tomorrow},
-                    {afterTomorrow: action.payload.afterTomorrow}
-                ]
+                currentCityHourlyWeatherForecast: action.payload
             }
         default :
             return state

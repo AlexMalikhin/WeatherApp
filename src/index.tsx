@@ -1,15 +1,18 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import {Provider} from "react-redux";
-import {store} from "./store";
 import {BrowserRouter} from "react-router-dom";
+import App from './App';
+import {store} from "./store";
+import './languageUtils/i18next'
+import './index.css';
 
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
-            <App/>
+            <Suspense fallback={"loading"}>
+                <App/>
+            </Suspense>
         </BrowserRouter>
     </Provider>,
     document.getElementById('root')
