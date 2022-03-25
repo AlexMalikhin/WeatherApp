@@ -4,12 +4,34 @@
   padding: 5vw;
 
   .container{
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 85vw;
     justify-content: center;
     align-items: center;
     gap: 4vw;
+    .language_block{
+      position: absolute;
+      top: 72vh;
+      display: flex;
+      gap: 0.5vw;
+      left: 83vw;
+      .language_img{
+        width: 3vw;
+        box-shadow: 0 0 0.1vw 0.2vw rgba(0, 0, 0, 0.79);
+        border-radius: 50%;
+        cursor: pointer;
+        filter: invert(10%);
+      }
+      .language_img:active{
+        width: 3vw;
+        box-shadow: 0 0 0.1vw 0.2vw rgba(0, 0, 0, 0.79);
+        border-radius: 50%;
+        cursor: pointer;
+        filter: invert(0);
+      }
+    }
   }
   .container_hidden{
     display: flex;
@@ -19,5 +41,18 @@
     align-items: center;
     gap: 4vw;
     position: fixed;
+    .language_block{
+      position: absolute;
+      top: 72vh;
+      display: flex;
+      gap: 0.5vw;
+      left: 83vw;
+      .language_img{
+        width: 3vw;
+        box-shadow: 0 0 0.1vw 0.2vw rgba(0, 0, 0, 0.79);
+        border-radius: 50%;
+        cursor: pointer;
+      }
+    }
   }
 }

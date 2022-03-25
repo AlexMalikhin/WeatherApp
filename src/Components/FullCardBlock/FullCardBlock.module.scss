@@ -1,0 +1,14 @@
+.container {
+  margin-bottom: 4vw;
+  .cards {
+    display: grid;
+    grid-template-columns: 16.5vw 16.5vw 16.5vw 16.5vw;
+    grid-gap: 3.5vw;
+  }
+
+  .days_headers {
+    font-size: 2vw;
+    margin: 2vw 0;
+    color: #0b6073;
+  }
+}

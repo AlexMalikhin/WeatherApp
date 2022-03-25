@@ -23,7 +23,7 @@ export const Header: React.FC = () => {
     return (
         <header className={headerStyles.wrapper}>
             <div className={headerStyles.container}>
-                <h1 className={headerStyles.logo_header}>Weather App</h1>
+                <h1 className={headerStyles.logo_header}>Weather Forecast</h1>
                 <div className={headerStyles.searcher_block}>
                     <AddressSuggestions
                         token={API_KEY}
@@ -32,7 +32,7 @@ export const Header: React.FC = () => {
                         onChange={handleChange}
                         count={6}
                     />
-                    <button onClick={getCityWeather}>Добавить Город</button>
+                    <button className={headerStyles.add_city_button} onClick={getCityWeather}>Добавить Город</button>
                 </div>
             </div>
         </header>

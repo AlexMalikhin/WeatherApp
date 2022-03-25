@@ -1,5 +1,9 @@
 const defaultState = {
-    newCityCoords: {}, allCities: [], detailedWeatherForecastParams: {}, currentCityHourlyWeatherForecast: null
+    newCityCoords: {},
+    allCities: [],
+    detailedWeatherForecastParams: {},
+    currentCityHourlyWeatherForecast: null,
+    language: 'ru'
 }
 
 const DELETE_CITY_WEATHER = 'DELETE_CITY_WEATHER';
@@ -7,6 +11,7 @@ const ADD_NEW_CITY_COORDS = 'ADD_NEW_CITY_COORDS';
 const ADD_WEATHER_NEW_CITY = 'ADD_WEATHER_NEW_CITY';
 const ADD_PARAMS_DETAILED_WEATHER_FORECAST = 'ADD_PARAMS_DETAILED_WEATHER_FORECAST';
 const ADD_HOURLY_WEATHER_FORECAST = 'ADD_HOURLY_WEATHER_FORECAST';
+const CHANGE_LANGUAGE = 'CHANGE_LANGUAGE';
 export const FETCH_CURRENT_WEATHER_CITY = 'FETCH_CURRENT_WEATHER_CITY';
 export const FETCH_ADDED_WEATHER_CITY = 'FETCH_ADDED_WEATHER_CITY';
 export const FETCH_HOURLY_WEATHER_FORECAST = 'FETCH_HOURLY_WEATHER_FORECAST';
@@ -29,6 +34,11 @@ export const cityReducer = (state = defaultState, action) => {
                 ...state,
                 currentCityHourlyWeatherForecast: action.payload
             }
+        case CHANGE_LANGUAGE:
+            return {
+                ...state,
+                language: action.payload
+            }
         default :
             return state
     }
@@ -45,6 +55,7 @@ export const addNewCityCoords = (latitude, longitude) => ({
 export const addHourlyWeatherForecast = (payload) => ({
     type: ADD_HOURLY_WEATHER_FORECAST, payload: payload
 })
+export const changeLanguageAction = (payload) =>({type: CHANGE_LANGUAGE, payload})
 export const fetchCurrentCity = () => ({type: FETCH_CURRENT_WEATHER_CITY})
 export const fetchAddedWeatherCity = () => ({type: FETCH_ADDED_WEATHER_CITY})
 export const fetchHourlyWeatherForecast = () => ({type: FETCH_HOURLY_WEATHER_FORECAST})

@@ -11,7 +11,10 @@ i18next
         fallbackLng: 'ru',
         whitelist: ['ru, en'],
         debug: true,
-
+        detection: {
+            order: ["localStorage", "cookie"],
+            caches: ["localStorage", "cookie"]
+        },
         interpolation: {
             escapeValue: false, // not needed for react as it escapes by default
         }

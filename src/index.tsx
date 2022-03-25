@@ -10,9 +10,9 @@ import './index.css';
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
-            <Suspense fallback={"loading"}>
+            {/*<Suspense fallback={"loading"}>*/}
                 <App/>
-            </Suspense>
+            {/*</Suspense>*/}
         </BrowserRouter>
     </Provider>,
     document.getElementById('root')

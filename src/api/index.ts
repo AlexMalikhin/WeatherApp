@@ -5,10 +5,10 @@ const instance = axios.create({
 })
 
 export const weatherAPI = {
-    byCoord(lat: number, lon: number) {
+    byCoord(lat: number, lon: number, language: string) {
         return instance.get(`weather?lat=${lat}&lon=${lon}&units=metric&lang=ru&appid=2fcd253d22ebf7c6a74540426dcfcd16`)
     },
-    byCoordFiveDaysThreeHours(lat: number, lon: number) {
+    byCoordFiveDaysThreeHours(lat: number, lon: number, language: string) {
         return instance.get(`forecast?lat=${lat}&lang=ru&lon=${lon}&units=metric&appid=2fcd253d22ebf7c6a74540426dcfcd16`)
     },
     // byWeek(lat: number, lon: number) {
