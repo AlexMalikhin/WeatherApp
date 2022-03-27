@@ -13,7 +13,7 @@ const App: React.FC = () => {
     }, [dispatch])
 
     return (
-        <Suspense fallback={'Loading...'}>
+        <Suspense fallback={null}>
             <div className="App">
                 <Header/>
                 <Routes>
