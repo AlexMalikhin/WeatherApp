@@ -1,6 +1,7 @@
 import React from "react";
 import fullCardItem from './FullCardItem.module.scss';
 import moment from "moment";
+import {translate} from "../../i18n/translate";
 
 export const FullCardItem: React.FC = ({data}) => {
     // console.log(data.dt_txt)
@@ -16,8 +17,8 @@ export const FullCardItem: React.FC = ({data}) => {
                 </div>
             </div>
             <p className={fullCardItem.weather_description}>{data.weather[0].description}</p>
-            <p className={fullCardItem.weather_feel}>Ощущается
-                как: {Math.round(data?.main.feels_like)}°C
+            <p className={fullCardItem.weather_feel}>{translate('feels_like')}
+                : {Math.round(data?.main.feels_like)}°C
             </p>
         </div>
     )

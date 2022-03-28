@@ -5,7 +5,8 @@ import {useToggle} from "../../hooks/useToggle";
 import mainPageStyles from './MainPage.module.scss';
 import ru from '../../img/languages/ru.png';
 import en from '../../img/languages/en.png';
-import {changeLanguageAction} from "../../store/cityReducer";
+import {changeLanguageAction, changeLanguageWeatherData} from "../../store/cityReducer";
+import {LOCALES} from "../../i18n";
 
 
 
@@ -16,7 +17,9 @@ export const MainPage = () =>{
     const dispatch = useDispatch();
     const changeLanguage = (language: string)=>{
         dispatch(changeLanguageAction(language))
+        dispatch(changeLanguageWeatherData())
     }
+
 
     return(
         <div className={mainPageStyles.wrapper}>

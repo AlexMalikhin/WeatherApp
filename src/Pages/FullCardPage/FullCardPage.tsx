@@ -4,6 +4,7 @@ import fullCardPageStyles from './FullCardPage.module.scss';
 import cross from '../../img/delete.png';
 import {useDispatch, useSelector} from "react-redux";
 import {fetchHourlyWeatherForecast} from "../../store/cityReducer";
+import {translate} from "../../i18n/translate";
 
 export const FullCardPage = ({click}: any) => {
     const currentCityParams = useSelector(state => state.detailedWeatherForecastParams)
@@ -17,9 +18,9 @@ export const FullCardPage = ({click}: any) => {
     const getTitle = (index:any, key: any) =>{
         switch (index){
             case 0:
-                return 'Сегодня'
+                return translate('today')
             case 1:
-                return 'Завтра'
+                return translate('tomorrow')
             default:
                 return false
         }
