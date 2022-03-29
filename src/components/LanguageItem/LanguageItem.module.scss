@@ -1,0 +1,14 @@
+.language_img{
+  width: 3vw;
+  box-shadow: 0 0 0.1vw 0.1vw rgba(255, 255, 255, 0.79);
+  border-radius: 50%;
+  cursor: pointer;
+  filter: invert(10%);
+}
+.language_img:active{
+  width: 3vw;
+  box-shadow: 0 0 0.1vw 0.1vw rgba(255, 255, 255, 0.79);
+  border-radius: 50%;
+  cursor: pointer;
+  filter: invert(0);
+}

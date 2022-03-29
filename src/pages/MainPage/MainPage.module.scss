@@ -1,0 +1,26 @@
+.wrapper{
+  display: flex;
+  justify-content: center;
+  padding: 5vw;
+
+  .container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 85vw;
+    justify-content: center;
+    align-items: center;
+    gap: 4vw;
+
+  }
+  .container_hidden{
+    display: flex;
+    flex-direction: column;
+    width: 85vw;
+    justify-content: center;
+    align-items: center;
+    gap: 4vw;
+    position: fixed;
+
+  }
+}

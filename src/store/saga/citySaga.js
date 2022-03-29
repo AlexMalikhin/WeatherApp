@@ -1,42 +1,51 @@
 import {put, takeEvery, call, select, all} from 'redux-saga/effects';
 import {
     addWeatherNewCity,
-    FETCH_CURRENT_WEATHER_CITY,
+    addHourlyWeatherForecast,
+    deleteAllCitiesAction
+} from "../reducers/citiesReducer/citiesReducer";
+import {
     FETCH_ADDED_WEATHER_CITY,
+    FETCH_CURRENT_WEATHER_CITY,
     FETCH_HOURLY_WEATHER_FORECAST,
-    addHourlyWeatherForecast, CHANGE_LANGUAGE_WEATHER_DATA, deleteAllCitiesAction
-} from "../store/cityReducer";
-import {weatherAPI, geoLocateAPI} from "../api";
+    CHANGE_LANGUAGE_WEATHER_DATA
+} from "../reducers/citiesReducer/consts";
+import {weatherAPI, geoLocateAPI} from "../../api";
 
-const getUserLocation = () => new Promise((resolve, reject) => {
-    navigator.geolocation.getCurrentPosition(location => resolve(location), error => reject(error),)
-})
+// const getUserLocation = () => new Promise((resolve, reject) => {
+//     navigator.geolocation.getCurrentPosition(location => resolve(location), error => reject(error),)
+// })
 
 function* fetchCurrentCityWorker() {
-    //       default geolocation
     // const location = yield call(getUserLocation)
     // const {latitude, longitude} = location.coords
     // const data = yield call(()=>weatherAPI.byCoord(latitude, longitude))
-
-
-    //    dadata location API
-    const currentLocation = yield call(() => geoLocateAPI.getLocate('c44d41ee20fa4f7ad65b3bf9df85e7aa2026b8cd'))
+    const currentLocation = yield call(() =>
+        geoLocateAPI.getLocate('c44d41ee20fa4f7ad65b3bf9df85e7aa2026b8cd')
+    )
     const {geo_lat, geo_lon} = currentLocation.data.location.data
-    const {language} = yield select()
-    const data = yield call(() => weatherAPI.byCoord(geo_lat, geo_lon, language))
+    const {languageReducer} = yield select()
+    const data = yield call(() => weatherAPI.byCoord(geo_lat, geo_lon, languageReducer.language))
     yield put(addWeatherNewCity(data.data))
 }
 
 function* fetchAddedWeatherCityWorker() {
-    const store = yield select()
-    const data = yield call(() => weatherAPI.byCoord(store.newCityCoords.latitude, store.newCityCoords.longitude, store.language))
+    const {languageReducer} = yield select()
+    const {citiesReducer} = yield select()
+    const data = yield call(() =>
+        weatherAPI.byCoord(
+            citiesReducer.newCityCoords.latitude,
+            citiesReducer.newCityCoords.longitude,
+            languageReducer.language
+        )
+    )
     yield put(addWeatherNewCity(data.data))
 }
 
 function* fetchHourlyWeatherForecastWorker() {
     const store = yield select()
-    const {lat, lon} = store.detailedWeatherForecastParams.coords
-    const {language} = store
+    const {lat, lon} = store.citiesReducer.detailedWeatherForecastParams.coords
+    const {language} = store.languageReducer
     const data = yield call(() => weatherAPI.byCoordFiveDaysThreeHours(lat, lon, language))
     const {list} = data.data
     const actualList = list.slice(1, 40)
@@ -49,18 +58,16 @@ function* fetchHourlyWeatherForecastWorker() {
     })
     const filteredList = {}
     dates.map((date) => filteredList[date] = actualList.filter((listItem) => listItem.dt_txt.slice(5, 10) === date))
-    yield call(() => console.log(filteredList))
     yield put(addHourlyWeatherForecast(filteredList))
 }
 
-function* changeWeatherDataLanguageWorker(){
+function* changeWeatherDataLanguageWorker() {
     const store = yield select();
-    const {allCities} = store
     yield put(deleteAllCitiesAction())
-    const translatedCities = yield all(allCities.map((city)=>(
-        call(()=>weatherAPI.byCoord(city.coord.lat, city.coord.lon, store.language ))
+    const translatedCities = yield all(store.citiesReducer.allCities.map((city) => (
+        call(() => weatherAPI.byCoord(city.coord.lat, city.coord.lon, store.languageReducer.language))
     )))
-    yield all(translatedCities.map((city)=>put(addWeatherNewCity(city.data))))
+    yield all(translatedCities.map((city) => put(addWeatherNewCity(city.data))))
 }
 
 
@@ -76,6 +83,6 @@ export function* getHourlyWeatherForecast() {
     yield takeEvery(FETCH_HOURLY_WEATHER_FORECAST, fetchHourlyWeatherForecastWorker)
 }
 
-export function* changeWeatherDataLanguageWatcher(){
+export function* changeWeatherDataLanguageWatcher() {
     yield takeEvery(CHANGE_LANGUAGE_WEATHER_DATA, changeWeatherDataLanguageWorker)
 }

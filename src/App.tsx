@@ -1,11 +1,13 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {Routes, Route} from "react-router-dom";
-import {MainPage} from "./Pages/MainPage/MainPage";
-import {Header} from "./Components/Header/Header";
-import {fetchCurrentCity} from "./store/cityReducer";
-import {I18nProvider, LOCALES} from "./i18n";
-import {FormattedMessage} from "react-intl";
+import {MainPage} from "./pages/MainPage/MainPage";
+import {Header} from "./components/Header/Header";
+import {fetchCurrentCity} from "./store/reducers/citiesReducer/citiesReducer";
+import {I18nProvider} from "./i18n";
+import {LanguageBlock} from "./components/LanguagesBlock/LanguageBlock";
+import {RootState} from "./store";
+
 
 const App: React.FC = () => {
 
@@ -13,13 +15,14 @@ const App: React.FC = () => {
     useEffect(() => {
         dispatch(fetchCurrentCity())
     }, [dispatch])
-    const language = useSelector(state=>state.language)
+    const {language} = useSelector((state:RootState)=>state.languageReducer)
     console.log(language)
 
     return (
         <I18nProvider locale={language} >
             <div className="App">
                 <Header/>
+                <LanguageBlock/>
                 <Routes>
                     <Route path='/Main' element={<MainPage/>}/>
                 </Routes>

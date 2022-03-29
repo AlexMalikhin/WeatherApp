@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {useDispatch} from "react-redux";
 import {AddressSuggestions} from "react-dadata";
-import {addNewCityCoords, fetchAddedWeatherCity} from "../../store/cityReducer";
+import {addNewCityCoords, fetchAddedWeatherCity} from "../../store/reducers/citiesReducer/citiesReducer";
 import {translate} from "../../i18n/translate";
 import headerStyles from './Header.module.scss';
 import 'react-dadata/dist/react-dadata.css';
