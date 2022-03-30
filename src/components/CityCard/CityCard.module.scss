@@ -5,15 +5,16 @@
 
   .card_container {
     border-radius: 2vw;
-    box-shadow: 0 0 25px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 25px 15px rgba(0, 0, 0, 0.12);
     width: 32vw;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
     position: relative;
-    background: #b3b9f1;
+    background: rgba(221, 240, 250, 0.58);
     cursor: pointer;
+    animation: init 2s ease-in-out  ;
     .delete_cross{
       width: 1.1vw;
       top: 2.1vw;
@@ -33,7 +34,7 @@
       transition: 0.2s ease-in-out;
     }
     .city_name {
-      color: #ffffff;
+      color: #062749;
       font-size: 2vw;
       font-weight: 500;
     }
@@ -41,7 +42,7 @@
     .more_info {
       font-style: oblique;
       font-size: 1.3vw;
-      color: #010f13;
+      color: #041434;
       font-weight: 300;
     }
 
@@ -55,20 +56,25 @@
       .weather_celsius {
         display: flex;
         align-items: center;
-        color: #ffffff;
+        color: #030a25;
         font-size: 4vw;
       }
     }
     .weather_description{
-      color: #ffffff;
+      color: #041533;
       font-size: 1.3vw;
       margin: 0;
     }
     .weather_feel{
       margin-top: 0;
-      color: #ffffff;
+      color: #04062c;
       font-size: 1.3vw;
     }
   }
+}
+
+@keyframes init {
+  from { left: -100vw; }
+  to { left: 0; }
 }
 

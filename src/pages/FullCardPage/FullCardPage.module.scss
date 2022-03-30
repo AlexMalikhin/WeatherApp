@@ -1,20 +1,22 @@
 .wrapper {
-  background: rgba(229, 2, 64, 0.21);
+  background: rgba(250, 249, 249, 0.21);
   position: absolute;
   top: 0;
   backdrop-filter: blur(8px);
   z-index: 3000;
-  width: 100%;
+  width: 100vw;
   .container {
     align-items: center;
     display: flex;
     flex-direction: column;
+    position: relative;
     .header{
-      background: linear-gradient(#e59dfd, #acb2ef);
-      position: sticky;
+      background: linear-gradient(rgba(37, 46, 246, 0.18), rgba(10, 32, 246, 0.26));
+      position: fixed;
       text-align: center;
-      top: 0;
+      top: 1vh;
       width: 100%;
+      z-index: 10000000000;
       .city_name {
         font-size: 3vw;
         color: #0a619d;
