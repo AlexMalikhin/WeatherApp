@@ -64,7 +64,7 @@ interface addHourlyWeatherForecastInterface{
     payload: {[key:string]: CityData[]}
 }
 
-export const addHourlyWeatherForecast: addHourlyWeatherForecastInterface = (fullWeatherCityForecast) => ({
+export const addHourlyWeatherForecast = (fullWeatherCityForecast) => ({
     type: ADD_HOURLY_WEATHER_FORECAST, payload: fullWeatherCityForecast
 })
 

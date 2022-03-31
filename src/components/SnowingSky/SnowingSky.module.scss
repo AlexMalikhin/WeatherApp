@@ -1,0 +1,48 @@
+.wrapper{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: linear-gradient(#d9dce7, #c9cedc);
+  .clouds_back{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+  .cloudOne{
+    position: fixed;
+    top: 0;
+    left: 50vw;
+    width: 100vw;
+    animation: infiniteScroll 250s linear infinite;
+    z-index: 10001;
+  }
+  .cloudTwo{
+    position: fixed;
+    top: -20vh;
+    left: -50vw;
+    width: 100vw;
+    animation: infiniteScroll2 300s linear infinite;
+    z-index: 10001;
+  }
+  @keyframes infiniteScroll {
+    50%{
+      transform: translateX(-106.6666%);
+    }
+    100%{
+      transform: translateX(0%);
+    }
+  }
+  @keyframes infiniteScroll2 {
+    50%{
+      transform: translateX(106.6666%);
+    }
+    100%{
+      transform: translateX(0%);
+    }
+  }
+}

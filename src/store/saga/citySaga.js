@@ -1,31 +1,26 @@
 import {put, takeEvery, call, select, all} from 'redux-saga/effects';
+import {weatherAPI, geoLocateAPI} from "../../api";
 import {
     addWeatherNewCity,
     addHourlyWeatherForecast,
     deleteAllCitiesAction
 } from "../reducers/citiesReducer/citiesReducer";
+import {changeThemeAction} from "../reducers/themeReducer/themeReducer";
 import {
     FETCH_ADDED_WEATHER_CITY,
     FETCH_CURRENT_WEATHER_CITY,
     FETCH_HOURLY_WEATHER_FORECAST,
     CHANGE_LANGUAGE_WEATHER_DATA
 } from "../reducers/citiesReducer/consts";
-import {weatherAPI, geoLocateAPI} from "../../api";
-
-// const getUserLocation = () => new Promise((resolve, reject) => {
-//     navigator.geolocation.getCurrentPosition(location => resolve(location), error => reject(error),)
-// })
 
 function* fetchCurrentCityWorker() {
-    // const location = yield call(getUserLocation)
-    // const {latitude, longitude} = location.coords
-    // const data = yield call(()=>weatherAPI.byCoord(latitude, longitude))
     const currentLocation = yield call(() =>
         geoLocateAPI.getLocate('c44d41ee20fa4f7ad65b3bf9df85e7aa2026b8cd')
     )
     const {geo_lat, geo_lon} = currentLocation.data.location.data
     const {languageReducer} = yield select()
     const data = yield call(() => weatherAPI.byCoord(geo_lat, geo_lon, languageReducer.language))
+    yield put(changeThemeAction(data.data.weather[0].id))
     yield put(addWeatherNewCity(data.data))
 }
 
@@ -69,7 +64,6 @@ function* changeWeatherDataLanguageWorker() {
     )))
     yield all(translatedCities.map((city) => put(addWeatherNewCity(city.data))))
 }
-
 
 export function* addedCityWeatherWatcher() {
     yield takeEvery(FETCH_ADDED_WEATHER_CITY, fetchAddedWeatherCityWorker)

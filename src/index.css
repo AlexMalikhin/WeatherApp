@@ -17,3 +17,7 @@ code {
 h1{
   font-size: 2vw;
 }
+html {
+  overflow-x: hidden;
+  margin-right: calc(-1 * (100vw - 100%));
+}
