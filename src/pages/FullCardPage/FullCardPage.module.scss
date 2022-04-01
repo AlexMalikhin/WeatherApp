@@ -17,9 +17,17 @@
       top: 0;
       width: 100%;
       z-index: 10000000000;
+      @media (min-width: 0) and (max-width: 800px) {
+        text-align: left;
+      }
       .city_name {
         font-size: 3vw;
         color: #0a619d;
+        @media (min-width: 0) and (max-width: 800px) {
+          font-size: 8vw;
+          margin: 3vw 3vw;
+
+        }
       }
       .delete_button {
         position: absolute;
@@ -30,6 +38,11 @@
         cursor: pointer;
         filter: invert(30%);
         transition: 0.1s ease-in-out;
+        @media (min-width: 0) and (max-width: 800px) {
+          width: 5vw;
+          top: 6vw;
+          right: 5vw;
+        }
       }
 
       .delete_button:hover {
@@ -41,12 +54,21 @@
         cursor: pointer;
         filter: invert(0%);
         transition: 0.1s ease-in-out;
+        @media (min-width: 0) and (max-width: 800px) {
+          width: 5vw;
+          top: 6vw;
+          right: 5vw;
+        }
       }
     }
     .weather_days {
       padding: 5vw 3vw;
       width: 76vw;
-      align-items: start;
+      //align-items: start;
+      @media (min-width: 0) and (max-width: 800px) {
+        width: 100vw;
+
+      }
     }
   }
 }

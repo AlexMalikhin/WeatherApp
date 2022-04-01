@@ -1,4 +1,4 @@
-.wrapper{
+.wrapper {
   display: flex;
   justify-content: center;
   border-bottom: 1px solid rgba(17, 12, 12, 0.09);
@@ -9,14 +9,92 @@
   top: 0;
   z-index: 1;
   box-shadow: 4px 4px 3px 2px rgba(0, 0, 0, 0.2);
-  .container{
+  @media (min-width: 0) and (max-width: 800px){
+    height: 15vw;
+  }
+
+  .container {
     width: 85vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    .searcher_block{
+    @media (min-width: 0) and (max-width: 800px) {
+      flex-direction: column;
+      gap: 6vw;
+    }
+
+    .searcher_block {
       display: flex;
-      .add_city_button{
+      @media (min-width: 0) and (max-width: 800px) {
+        width: 90vw;
+      }
+      .container_autocomplete {
+
+        //position: relative;
+        //margin: 0;
+        //font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        //'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        //sans-serif;
+      }
+      .input_autocomplete{
+        @media (min-width: 0) and (max-width: 800px) {
+          font-size: 4.2vw;
+          padding: 3vw 2vw;
+          width: 55.5vw;
+          border-radius: 1.5vw 0 0 1.5vw;
+          border: none;
+        }
+      }
+      .input_autocomplete:focus{
+        @media (min-width: 0) and (max-width: 800px) {
+          font-size: 4.2vw;
+          width: 55.5vw;
+          box-shadow: none;
+          border-radius: 1.5vw 0 0 1.5vw;
+        }
+      }
+      .suggestion {
+          width: 60vw;
+          background: white;
+          font-size: 4vw;
+        border: none;
+          border-top: 0.1px solid #afabab;
+          padding: 1.5vw;
+          margin: 0;
+      }
+      .current_suggestion {
+          padding: 1vw;
+        margin: 0;
+      }
+      .hint {
+        padding: 1vw;
+        margin: 0;
+      }
+      .highlight {
+        padding: 1vw;
+        margin: 0;
+      }
+      .add_city_button {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+        padding: 0 1vw;
+        cursor: pointer;
+        color: white;
+        background: rgba(10, 97, 157, 0.74);
+        border: rgba(10, 97, 157, 0.74) 1px solid;
+        font-size: 0.9vw;
+        border-radius: 0.2vw;
+        @media (min-width: 0) and (max-width: 800px) {
+          padding: 0 6vw;
+          font-size: 4.2vw;
+          border-radius: 0 1.5vw 1.5vw 0;
+          width: 30.5vw;
+          max-height: 12vw;
+        }
+      }
+
+      .add_city_button:hover {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
         sans-serif;
@@ -27,36 +105,41 @@
         border: #0a619d 1px solid;
         font-size: 0.9vw;
         border-radius: 0.2vw;
+        @media (min-width: 0) and (max-width: 800px) {
+          font-size: 4.2vw;
+          border-radius: 0 1.5vw 1.5vw 0;
+        }
       }
-      .add_city_button:hover{
+
+      .add_city_button:active {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
         sans-serif;
         padding: 0 1vw;
         cursor: pointer;
-        color: white;
-        background: #0a619d;
-        border: #0a619d 1px solid;
-        font-size: 0.9vw;
-        border-radius: 0.2vw;
-      }
-      .add_city_button:active{
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-        sans-serif;
-        padding: 0 1vw;
-        cursor: pointer;
-        color: #0a619d;
+        color: rgba(10, 97, 157, 0.74);
         background: #ffffff;
-        border: #0a619d 1px solid;
+        border: rgba(10, 97, 157, 0.74) 1px solid;
         font-size: 0.9vw;
         border-radius: 0.2vw;
+        @media (min-width: 0) and (max-width: 800px) {
+          font-size: 4.2vw;
+          border-radius: 0 1.5vw 1.5vw 0;
+        }
       }
     }
-    .logo_header{
-      color: white;
+
+    .logo_header {
+      color: rgba(7, 17, 73, 0.85);
+      @media (min-width: 0) and (max-width: 800px) {
+        font-size: 8vw;
+        margin: 2vw 1vw 1vw;
+        position: relative;
+        left: -12vw;
+      }
     }
-    .input{
+
+    .input {
       height: 2vw;
     }
   }

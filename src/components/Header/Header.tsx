@@ -32,10 +32,15 @@ export const Header: React.FC = () => {
                 <div className={headerStyles.searcher_block}>
                     <AddressSuggestions
                         token={API_KEY}
-                        inputProps={{placeholder: `${intl.formatMessage({id: 'placeholder'})}`}}
+                        inputProps={{placeholder: `${intl.formatMessage({id: 'placeholder'})}`, className: headerStyles.input_autocomplete}}
                         value={cityValue}
                         onChange={handleChange}
-                        count={6}
+                        count={3}
+                        containerClassName={headerStyles.container_autocomplete}
+                        suggestionClassName={headerStyles.suggestion}
+                        currentSuggestionClassName={headerStyles.current_suggestion}
+                        // hintClassName={headerStyles.hint}
+                        // highlightClassName={headerStyles.highlight}
                     />
                     <button className={headerStyles.add_city_button} onClick={getCityWeather}>{translate('button')}</button>
                 </div>

@@ -27,7 +27,7 @@ export const FullCardPage = () => {
                 <header className={fullCardPageStyles.header}>
                     <img className={fullCardPageStyles.delete_button} src={cross} alt={'delete_button'}
                          onClick={closeModal}/>
-                    <h1 className={fullCardPageStyles.city_name}>{currentCityParams.cityName}</h1>
+                    <h1 className={fullCardPageStyles.city_name}>{currentCityParams?.cityName}</h1>
                 </header>
                 <div className={fullCardPageStyles.weather_days}>
                     {hourlyWeatherForecast && Object.keys(hourlyWeatherForecast).map((key, index) => (

@@ -4,11 +4,20 @@
     display: grid;
     grid-template-columns: 16.5vw 16.5vw 16.5vw 16.5vw;
     grid-gap: 3.5vw;
+    align-items: center;
+    @media (min-width: 0) and (max-width: 800px) {
+      grid-template-columns: 1fr 1fr;
+      padding: 0 3vw;
+    }
   }
 
   .days_headers {
     font-size: 2vw;
     margin: 2vw 0;
     color: #0b6073;
+    @media (min-width: 0) and (max-width: 800px) {
+      padding: 0 3vw;
+      font-size: 5vw;
+    }
   }
 }

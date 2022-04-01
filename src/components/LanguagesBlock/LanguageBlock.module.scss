@@ -5,4 +5,10 @@
   display: flex;
   gap: 0.5vw;
   left: 92vw;
+  @media (min-width: 0) and (max-width: 800px) {
+    bottom: auto;
+    top: 1.3vh;
+    left: 76vw;
+    gap: 2vw;
+  }
 }

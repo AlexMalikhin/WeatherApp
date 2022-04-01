@@ -5,7 +5,7 @@ import {translate} from "../../i18n/translate";
 import {CityData} from "../../types/types";
 
 interface FullCardBlockProps  {
-    title: ()=> string | boolean,
+    title: any,
     days: CityData[]
 }
 

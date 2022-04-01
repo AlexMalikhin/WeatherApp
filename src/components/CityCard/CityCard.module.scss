@@ -2,6 +2,9 @@
   display: flex;
   width: 85vw;
   justify-content: center;
+  @media (min-width: 0) and (max-width: 800px){
+    width: 90vw;
+  }
 
   .card_container {
     border-radius: 2vw;
@@ -14,7 +17,10 @@
     position: relative;
     background: rgba(221, 240, 250, 0.58);
     cursor: pointer;
-    animation: init 2s ease-in-out  ;
+    animation: init 2s ease-in-out ;
+    @media (min-width: 0) and (max-width: 800px){
+      width: 90vw;
+    }
     .delete_cross{
       width: 1.1vw;
       top: 2.1vw;
@@ -23,6 +29,11 @@
       cursor: pointer;
       filter: invert(100%);
       transition: 0.2s ease-in-out;
+      @media (min-width: 0) and (max-width: 800px) {
+        width: 6vw;
+        top: 6vw;
+        right: 6vw;
+      }
     }
     .delete_cross:hover{
       width: 1.1vw;
@@ -32,11 +43,20 @@
       cursor: pointer;
       filter: invert(0%);
       transition: 0.2s ease-in-out;
+      @media (min-width: 0) and (max-width: 800px) {
+        width: 6vw;
+        top: 6vw;
+        right: 6vw;
+      }
     }
     .city_name {
       color: #062749;
       font-size: 2vw;
       font-weight: 500;
+      @media (min-width: 0) and (max-width: 800px){
+        font-size: 6vw;
+        margin-bottom: 0.5vw;
+      }
     }
 
     .more_info {
@@ -44,31 +64,53 @@
       font-size: 1.3vw;
       color: #041434;
       font-weight: 300;
+      @media (min-width: 0) and (max-width: 800px){
+        font-size: 5vw;
+        margin-bottom: 0;
+      }
     }
 
     .weather_report_block {
       display: flex;
       gap: 2vw;
+      @media (min-width: 0) and (max-width: 800px){
+        gap: 0;
+      }
       .weather_image {
         width: 8vw;
         height: 8vw;
+        @media (min-width: 0) and (max-width: 800px){
+          width: 40vw;
+          height: 40vw;
+          position: relative;
+          left: -6vw;
+        }
       }
       .weather_celsius {
         display: flex;
         align-items: center;
         color: #030a25;
         font-size: 4vw;
+        @media (min-width: 0) and (max-width: 800px){
+          font-size: 13vw;
+        }
       }
     }
     .weather_description{
       color: #041533;
       font-size: 1.3vw;
       margin: 0;
+      @media (min-width: 0) and (max-width: 800px){
+        font-size: 6vw;
+      }
     }
     .weather_feel{
       margin-top: 0;
       color: #04062c;
       font-size: 1.3vw;
+      @media (min-width: 0) and (max-width: 800px){
+        font-size: 6vw;
+      }
     }
   }
 }

@@ -2,7 +2,10 @@ import snowingSkyStyles from './SnowingSky.module.scss';
 import {Snow} from "../Snow/Snow";
 import {useMemo} from "react";
 import cloudBack from '../../img/themeWeather/greySky/cloud1.png';
+import cloudTwo from '../../img/themeWeather/clearSky/cloud1.png';
+import cloudThree from '../../img/themeWeather/clearSky/cloud2.png';
 import cloud from '../../img/themeWeather/greySky/cloud3.png';
+
 
 export const SnowingSky = () => {
     const snowFall = () => {
@@ -26,8 +29,8 @@ export const SnowingSky = () => {
     return (
         <div className={snowingSkyStyles.wrapper}>
             <img className={snowingSkyStyles.clouds_back} src={cloudBack} alt={'clouds back'}/>
-            <img className={snowingSkyStyles.cloudOne} src={cloud} alt={'cloud'}/>
-            <img className={snowingSkyStyles.cloudTwo} src={cloud} alt={'cloud'}/>
+            <img className={snowingSkyStyles.cloudOne} src={cloudThree} alt={'cloud'}/>
+            <img className={snowingSkyStyles.cloudTwo} src={cloudTwo} alt={'cloud'}/>
             {snowFall().map((item) => (
                 <Snow
                     randomSize={item.randomSize}

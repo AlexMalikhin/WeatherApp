@@ -1,3 +1,6 @@
+*{
+  touch-action: cross-slide-x;
+}
 .App{
   position: relative;
 }

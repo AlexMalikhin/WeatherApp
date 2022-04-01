@@ -4,6 +4,9 @@
   border-radius: 50%;
   cursor: pointer;
   filter: invert(10%);
+  @media (min-width: 0) and (max-width: 800px){
+    width: 9vw;
+  }
 }
 .language_img:active{
   width: 3vw;
@@ -11,4 +14,7 @@
   border-radius: 50%;
   cursor: pointer;
   filter: invert(0);
+  @media (min-width: 0) and (max-width: 800px){
+    width: 9vw;
+  }
 }

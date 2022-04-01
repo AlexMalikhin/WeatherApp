@@ -19,7 +19,8 @@ function* fetchCurrentCityWorker() {
     )
     const {geo_lat, geo_lon} = currentLocation.data.location.data
     const {languageReducer} = yield select()
-    const data = yield call(() => weatherAPI.byCoord(geo_lat, geo_lon, languageReducer.language))
+    // const data = yield call(() => weatherAPI.byCoord(52.9668,  36.0625, languageReducer.language))
+    const data = yield call(()=> weatherAPI.byCoord(geo_lat, geo_lon, languageReducer.language))
     yield put(changeThemeAction(data.data.weather[0].id))
     yield put(addWeatherNewCity(data.data))
 }
