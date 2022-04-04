@@ -11,17 +11,22 @@ import {
     FETCH_HOURLY_WEATHER_FORECAST
 } from "./consts";
 import {CityReducerState} from "./types";
-import {CityData} from "../../../types/types";
+
 
 
 const defaultState: CityReducerState = {
     newCityCoords: {},
     allCities: [],
-    detailedWeatherForecastParams: {},
+    detailedWeatherForecastParams: {
+        cityName: '',
+        coords: {
+            lat: 0, lon: 0
+        }
+    },
     currentCityHourlyWeatherForecast: null,
 }
 
-export const citiesReducer = (state = defaultState, action) => {
+export const citiesReducer = (state = defaultState, action: any) => {
     switch (action.type) {
         case ADD_NEW_CITY_COORDS:
             return {...state, newCityCoords: {latitude: action.payload.latitude, longitude: action.payload.longitude}}
@@ -50,24 +55,17 @@ export const citiesReducer = (state = defaultState, action) => {
 }
 
 export const deleteAllCitiesAction = () => ({type: DELETE_ALL_CITIES})
-export const addParamsDetailedWeatherForecast = (coords, cityName) => ({
+export const addParamsDetailedWeatherForecast = (coords: any, cityName: any) => ({
     type: ADD_PARAMS_DETAILED_WEATHER_FORECAST, payload: {coords: coords, cityName: cityName}
 })
-export const deleteCityWeather = payload => ({type: DELETE_CITY_WEATHER, payload})
-export const addWeatherNewCity = payload => ({type: ADD_WEATHER_NEW_CITY, payload})
-export const addNewCityCoords = (latitude, longitude) => ({
+export const deleteCityWeather = (payload: any) => ({type: DELETE_CITY_WEATHER, payload})
+export const addWeatherNewCity = (payload: any) => ({type: ADD_WEATHER_NEW_CITY, payload})
+export const addNewCityCoords = (latitude: number, longitude: number) => ({
     type: ADD_NEW_CITY_COORDS, payload: {latitude: latitude, longitude: longitude}
 })
-
-interface addHourlyWeatherForecastInterface{
-    type: string,
-    payload: {[key:string]: CityData[]}
-}
-
-export const addHourlyWeatherForecast = (fullWeatherCityForecast) => ({
+export const addHourlyWeatherForecast = (fullWeatherCityForecast: any) => ({
     type: ADD_HOURLY_WEATHER_FORECAST, payload: fullWeatherCityForecast
 })
-
 export const changeLanguageWeatherData = () => ({type: CHANGE_LANGUAGE_WEATHER_DATA})
 export const fetchCurrentCity = () => ({type: FETCH_CURRENT_WEATHER_CITY})
 export const fetchAddedWeatherCity = () => ({type: FETCH_ADDED_WEATHER_CITY})

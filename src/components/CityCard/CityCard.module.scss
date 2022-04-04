@@ -2,8 +2,11 @@
   display: flex;
   width: 85vw;
   justify-content: center;
+  position: relative;
   @media (min-width: 0) and (max-width: 800px){
     width: 90vw;
+    left: 0;
+    transition: 0.35s ease-out;
   }
 
   .card_container {
@@ -17,7 +20,7 @@
     position: relative;
     background: rgba(221, 240, 250, 0.58);
     cursor: pointer;
-    animation: init 2s ease-in-out ;
+    animation: init 0.8s ease-in-out ;
     @media (min-width: 0) and (max-width: 800px){
       width: 90vw;
     }
@@ -30,7 +33,7 @@
       filter: invert(100%);
       transition: 0.2s ease-in-out;
       @media (min-width: 0) and (max-width: 800px) {
-        width: 6vw;
+        width: 5vw;
         top: 6vw;
         right: 6vw;
       }
@@ -44,7 +47,7 @@
       filter: invert(0%);
       transition: 0.2s ease-in-out;
       @media (min-width: 0) and (max-width: 800px) {
-        width: 6vw;
+        width: 5vw;
         top: 6vw;
         right: 6vw;
       }

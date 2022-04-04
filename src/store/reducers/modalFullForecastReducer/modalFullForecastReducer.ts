@@ -4,7 +4,7 @@ const defaultState = {
     isOpenFullPage: false
 }
 
-export const modalFullForecastReducer = (state = defaultState, action) => {
+export const modalFullForecastReducer = (state = defaultState, action: any) => {
     switch (action.type) {
         case TOGGLE_MODAL_FULL_FORECAST:
             return {...state, isOpenFullPage: !state.isOpenFullPage}

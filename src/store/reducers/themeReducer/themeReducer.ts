@@ -6,7 +6,7 @@ const defaultTheme: ThemeReducerState = {
 
 const CHANGE_THEME = 'CHANGE_THEME';
 
-export const themeReducer = (state = defaultTheme, action) =>{
+export const themeReducer = (state = defaultTheme, action: any) =>{
     switch (action.type) {
         case CHANGE_THEME:
             return {...state, currentTheme: action.payload}
@@ -15,4 +15,4 @@ export const themeReducer = (state = defaultTheme, action) =>{
     }
 }
 
-export const changeThemeAction = (theme)=> ({type: CHANGE_THEME, payload: theme})
+export const changeThemeAction = (theme: any)=> ({type: CHANGE_THEME, payload: theme})

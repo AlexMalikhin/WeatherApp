@@ -1,8 +1,8 @@
-*{
-  touch-action: cross-slide-x;
-}
+
 .App{
   position: relative;
+  touch-action: none;
+  touch-action: pan-y;
 }
 body {
   margin: 0;

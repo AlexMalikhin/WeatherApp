@@ -16,7 +16,6 @@ const App: React.FC = () => {
         dispatch(fetchCurrentCity())
     }, [dispatch])
     const {language} = useSelector((state:RootState)=>state.languageReducer)
-    console.log(language)
 
     return (
         <I18nProvider locale={language} >

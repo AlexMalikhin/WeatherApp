@@ -6,7 +6,7 @@ export interface CityReducerState {
         longitude?: string
     },
     allCities: [] | CityData[],
-    detailedWeatherForecastParams: {} | {
+    detailedWeatherForecastParams: {
         cityName: string,
         coords: {
             lat: number, lon: number
